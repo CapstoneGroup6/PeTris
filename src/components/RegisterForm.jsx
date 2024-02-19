@@ -1,9 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
 import { getDatabase } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-import { getAuth, signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import { useState } from "react";
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 
     const firebaseConfig = {
     apiKey: "AIzaSyBvjVEjyPTG7evBoQGSNm2mGyp4gOf0CiE",
@@ -22,25 +22,36 @@ import { NavLink, useNavigate } from 'react-router-dom';
   const auth = getAuth(app);
   const database = getDatabase(app);
 
-const LoginForm = () => {
+const RegisterForm = () => {
+
+    // Initialize user input states
+    const [emailInput, setEmail] = useState('');
+    const [passwordInput, setPassword] = useState('');
+    const [usernameInput, setUsername] = useState('');
     
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-       
-    const onLogin = (e) => {
-        e.preventDefault();
-        signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in
+
+    // event handler for user sign up
+    const registerUser = event => {
+        event.preventDefault();
+
+        createUserWithEmailAndPassword(auth, emailInput, passwordInput)
+        .then(userCredential => {
+            // Signed up 
             const user = userCredential.user;
-            console.log(user);
+            
+            console.log(userCredential);
             
         })
-        .catch((error) => {
+        .catch(error => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log(errorCode, errorMessage)
+            console.log(errorCode);
+            console.log(errorMessage);
         });
+
+        setEmail('');
+        setPassword('');
+        setUsername('');
     }
 
     return (
@@ -48,7 +59,7 @@ const LoginForm = () => {
             <div className="container my-5">
             <h1>Sign Up</h1>
             <div className="col-lg-8 px-0">
-                <form id="MainForm" onSubmit={LoginForm}>
+                <form id="MainForm" onSubmit={registerUser}>
                     <div className="form-floating mb-3">
                     <input type="email" className="form-control" id="emailInput" placeholder="name@mail.com" 
                     onChange={event => setEmail(event.target.value)}/>
@@ -60,13 +71,16 @@ const LoginForm = () => {
                     <label htmlFor="floatingPassword">Password</label>
                     </div>
                     <div className="form-floating mb-3">
-                    <button type="submit" className="btn btn-primary" style={{"float": "right", "marginTop": "12px"}}>Login</button>
+                    <input type="text" className="form-control" id="username" placeholder="Username" 
+                    onChange={event => setUsername(event.target.value)}/>
+                    <label htmlFor="floatingInput">User Name</label>
+                    <button type="submit" variant="outline-success" style={{"float": "right", "marginTop": "12px"}}>Create New User</button>
                     </div>
                 </form>
-                <p className="text-sm text-white text-center">
-                    No account yet? {' '}
-                    <NavLink to="/RegisterForm">
-                        Sign up
+                <p>
+                    Already have an account?{' '}
+                    <NavLink to="/home" >
+                        Sign in
                     </NavLink>
                 </p>    
             </div>
@@ -75,4 +89,4 @@ const LoginForm = () => {
     )
 }
 
-export default LoginForm;
+export default RegisterForm;
