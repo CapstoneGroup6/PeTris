@@ -23,8 +23,8 @@ const rotations = point_array => {
 const Tetris = () => {
 
     const PIECES = [
-        [[[0,0],[1,0],[0,1],[1,1]]], // O
-        // rotations([[0,0],[-1,0],[0,-1],[1,-1]]), // S
+        // [[[0,0],[1,0],[0,1],[1,1]]], // O
+        rotations([[0,0],[-1,0],[0,-1],[1,-1]]), // S
         // rotations([[0,0],[0,-1],[0,1],[1,0]]), // T
     ];
 
@@ -32,27 +32,7 @@ const Tetris = () => {
     const [rotationIndex, setRotationIndex] = useState(0);
     const [pieceRotations, setPieceRotations] = useState(PIECES[Math.floor(Math.random() * PIECES.length)]);
     const [position, setPosition] = useState([5,0]);
-    
-
-    const clearPiece = () => {
-        const newBoard = createEmptyBoard();
-        board.forEach((row,i) => {
-            newBoard[i] = [...row];
-        })
-
-        const piece = pieceRotations[rotationIndex];
-        piece.forEach(([x,y]) => {
-            const row = position[1] + y;
-            const col = position[0] + x;
-            if (validIndex(row,col)) {
-                newBoard[row][col] = EMPTY_CELL;
-            }
-        })
-
-        console.log('board before update', board);
-        setBoard(newBoard);
-        console.log('board after update', board);
-    }
+    const [previousPosition, setPreviousPosition] = useState(null);
 
 
     const move = (deltaX, deltaY, deltaRotation) => {
@@ -67,7 +47,7 @@ const Tetris = () => {
         })
 
         if (moved) {
-            clearPiece();
+            setPreviousPosition([...position]);
             setPosition(([x,y]) => [x + deltaX, y + deltaY]);
             setRotationIndex((rotationIndex + deltaRotation) % pieceRotations.length);
         }
@@ -82,6 +62,17 @@ const Tetris = () => {
         })
         
         const piece = pieceRotations[rotationIndex];
+
+        if (previousPosition) {
+            piece.forEach(([x,y]) => {
+                const row = previousPosition[1] + y;
+                const col = previousPosition[0] + x;
+                if (validIndex(row,col)) {
+                    newBoard[row][col] = EMPTY_CELL;
+                } 
+            })    
+        }
+
         piece.forEach(([x,y]) => {
             const row = position[1] + y;
             const col = position[0] + x;
@@ -93,13 +84,13 @@ const Tetris = () => {
         setBoard(newBoard);
     }, [position, board, pieceRotations, rotationIndex])
 
-
     useEffect(() => {
         const gameLoop = () => {
             if (!move(0, 1, 0)) {
                 setPieceRotations(PIECES[Math.floor(Math.random() * PIECES.length)]);
                 setRotationIndex(0);
-                setPosition([5,0]);
+                setPosition([2,0]);
+                setPreviousPosition(null);
             }
             updateBoard();
         }
