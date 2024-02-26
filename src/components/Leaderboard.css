@@ -1,0 +1,58 @@
+.header {
+    background-color: #5e548e; 
+    padding: 20px; 
+    color: #ffffff; 
+    font-family: 'Roboto', sans-serif; 
+    text-align: center;
+  }
+
+  .game-name {
+    color: #ffffff; 
+  }
+  
+  .leaderboard-panel {
+    background-color: #3a3054;
+    padding: 20px; 
+    display: flex; 
+    justify-content: space-between; 
+  }
+  
+  .circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .icon {
+    width: 20px; 
+    height: 20px; 
+    margin-right: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+
+  .entry {
+    background-image: linear-gradient(to right, #f5cb42, #3a86ff);
+    border-radius: 20px; 
+    padding: 10px 20px; 
+    margin-top: 10px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .player-name {
+    flex: 1;
+  }
+
+  .player-points {
+    margin-left: 20px; 
+  }
+  
