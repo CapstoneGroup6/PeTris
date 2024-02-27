@@ -65,6 +65,15 @@ export const randomTetromino = () => {
     return TETROMINOES[keys[index]];
 }
 
+export const rotate = ({ piece, direction }) => {
+    const newPiece = piece.map((_, index) => (
+        piece.map(col => col[index])
+    ))
+
+    if (direction > 0) return newPiece.map(row => row.reverse());
+    return newPiece.reverse();
+}
+
 export const transferToBoard = ({
     className,
     isOccupied,
