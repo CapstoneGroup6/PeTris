@@ -1,10 +1,18 @@
-import { useState } from 'react';
-import { buildBoard } from "../GameHelpers/Board.js";
+import { useState, useEffect } from 'react';
+import { buildBoard, nextBoard } from "../GameHelpers/Board.js";
 
-export const useBoard = ({
-    rows, cols
-}) => {
+export const useBoard = ({rows, cols, player, resetPlayer, addLinesCleared}) => {
     const [board, setBoard] = useState(buildBoard({rows, cols}));
 
-    return [board, setBoard, ];
+    useEffect(() => {
+        setBoard(previousBoard => 
+            nextBoard({
+                board: previousBoard,
+                player,
+                resetPlayer,
+                addLinesCleared
+            }))
+    }, [player, resetPlayer, addLinesCleared])
+
+    return [board, setBoard];
 }

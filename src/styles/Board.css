@@ -1,10 +1,12 @@
 .Board {
     margin: 2em auto;
     display: grid;
+    grid-template-columns: repeat(10, 30px);
+    grid-template-rows: repeat(20, 30px);
     grid-gap: 2px;
-    width: 45vw;
-    height: 90vh;
-    background: rgb(32,0,64);
+    width: 340px;
+    height: 660px;
+    background: rgb(32,0,64,0.8);
     border: 10px solid rgb(32,0,64);
     border-radius: 10px;
     box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
