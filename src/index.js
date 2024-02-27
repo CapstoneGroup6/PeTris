@@ -12,10 +12,15 @@ import Home from './pages/Home';
 import Game from './pages/Game';
 import NoPage from './pages/NoPage';
 
+import Game from './components/Game';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     // <App />
     <>
         <App />
+        {/* <Navbar />
+        <LoginForm /> */}
+        {/* <Tetris /> */}
+        <Game />
     </>
 );
