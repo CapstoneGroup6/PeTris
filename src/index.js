@@ -9,7 +9,7 @@ import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 import Tetris from './components/Tetris';
 import Home from './pages/Home';
-import Game from './pages/Game';
+import GamePage from './pages/Game';
 import NoPage from './pages/NoPage';
 
 import Game from './components/Game';
