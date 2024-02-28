@@ -1,7 +1,7 @@
 import "../styles/GameController.css";
 import { Action, actionForKey } from "../GameHelpers/Input.js";
 import { playerController } from "../GameHelpers/PlayerController.js";
-
+import { useInterval } from "../hooks/useInterval.js";
 const GameController = ({
     board,
     gameStats,
@@ -9,6 +9,9 @@ const GameController = ({
     setGameOver,
     setPlayer
 }) => {
+    useInterval(() => {
+        handleInput({ action: Action.SlowDrop })
+    }, 1000);
 
     const onKeyUp = ({ code }) => {
         const action = actionForKey(code);
