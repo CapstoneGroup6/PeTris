@@ -8,7 +8,7 @@ const BoardCell = ({ cell }) => {
             </div>
         )
     } else {
-        return <div className={`BoardCell ${cell.className}`}>div</div>
+        return <div className={`BoardCell ${cell.className}`}></div>
     }
 }
 
