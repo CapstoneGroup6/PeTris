@@ -21,6 +21,6 @@ root.render(
         {/* <Navbar />
         <LoginForm /> */}
         {/* <Tetris /> */}
-        <Game />
+        <Game rows={20} cols={10} />
     </>
 );

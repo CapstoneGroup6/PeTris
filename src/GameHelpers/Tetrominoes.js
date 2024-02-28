@@ -45,7 +45,7 @@ export const TETROMINOES = {
         shape: [
             [1,1,1],
             [0,1,0],
-            [0,1,0],
+            [0,0,0],
         ],
         className: `${className} ${className}__t`
     },
@@ -63,6 +63,15 @@ export const randomTetromino = () => {
     const keys = Object.keys(TETROMINOES);
     const index = Math.floor(Math.random() * keys.length);
     return TETROMINOES[keys[index]];
+}
+
+export const rotate = ({ piece, direction }) => {
+    const newPiece = piece.map((_, index) => (
+        piece.map(col => col[index])
+    ))
+
+    if (direction > 0) return newPiece.map(row => row.reverse());
+    return newPiece.reverse();
 }
 
 export const transferToBoard = ({

@@ -12,8 +12,6 @@ import NoPage from './pages/NoPage';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 
-console.log(process.env.FIREBASE_API_KEY);
-
 function App() {
   
   return (
