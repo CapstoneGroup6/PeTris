@@ -10,7 +10,10 @@ const buildGameStats = () => ({
 export const useGameStats = () => {
     const [gameStats, setGameStats] = useState(buildGameStats());
 
-    const addLinesCleared = useCallback(() => {}, []);
+    const addLinesCleared = useCallback((lines) => {
+            
+    }, []);
+
     return [gameStats, addLinesCleared];
 }
 
