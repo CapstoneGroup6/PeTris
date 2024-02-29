@@ -17,9 +17,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     // <App />
     <>
-        <App />
-        {/* <Navbar />
-        <LoginForm /> */}
+        {/* <App /> */}
+        {/* <Navbar />  */}
+        {/* <LoginForm /> */}
         {/* <Tetris /> */}
         <Game rows={20} cols={10} />
     </>
