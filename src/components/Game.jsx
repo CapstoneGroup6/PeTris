@@ -1,5 +1,6 @@
 import Tetris from "./Tetris";
 import Menu from "./Menu";
+import React, { useRef } from "react";
 
 import { useGameOver } from "../hooks/useGameOver.js";
 
@@ -11,12 +12,15 @@ const Game = ({ rows, cols }) => {
         resetGameOver();
     }
 
+    const inputRef = useRef(null);
+
     return (
         <div className="Game">
+            
             {gameOver ? (
-                <Menu onClick={start} />
+                <Menu ref={inputRef} onClick={start} />
             ) : (
-                <Tetris rows={rows} cols={cols} setGameOver={setGameOver} />
+                <Tetris id={`game`} rows={rows} cols={cols} setGameOver={setGameOver} />
             )}
         </div>
     )
