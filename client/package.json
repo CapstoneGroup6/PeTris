@@ -1,5 +1,5 @@
 {
-  "name": "project-t",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,8 +13,11 @@
     "os": "^0.1.2",
     "path": "^0.12.7",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
+    "react-native-web": "^0.19.10",
     "react-scripts": "5.0.1",
+    "socket.io-client": "^4.7.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -41,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-router-dom": "^6.22.1"
   }
 }
