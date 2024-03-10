@@ -1,9 +1,29 @@
+import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../Contexts/authContext/authContext'
+import { doSignOut } from '../firebase/auth'
+
 const Navbar = () => {
+  const navigate = useNavigate()
+    const { userLoggedIn } = useAuth()
+    const { currentUser } = useAuth()
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
                     <a className="navbar-brand" href="#">Navbar</a>
+                    {
+                userLoggedIn
+                    ?
+                    <>
+                        <button onClick={() => { doSignOut().then(() => { navigate('/login') }) }} className='text-sm text-blue-600 underline'>Logout</button>
+                    </>
+                    :
+                    <>
+                        <Link className='text-sm text-blue-600 underline' to={'/login'}>Login </Link>
+                        <Link className='text-sm text-blue-600 underline' to={'/register'}>Register New Account</Link>
+                    </>
+            }
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                     </button>
@@ -34,6 +54,7 @@ const Navbar = () => {
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <button className="btn btn-outline-success" type="submit">Search</button>
           </form>
+          {userLoggedIn && <div className='btn btn-outline-success'>Hello {currentUser.displayName ? currentUser.displayName : currentUser.email}</div>}
         </div>
       </div>
     </nav>       

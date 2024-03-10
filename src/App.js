@@ -1,38 +1,38 @@
-// require('dotenv').config()
-import './App.css';
-import React, {useState, useEffect} from 'react';
-import Tetris from './components/Tetris';
-import Navbar from './components/Navbar';
-import RegisterForm from './components/RegisterForm';
-import LoginForm from './components/LoginForm';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
-import Home from './pages/Home';
-import Game from './pages/Game';
-import NoPage from './pages/NoPage';
-import Signup from './pages/Signup';
-import Login from './pages/Login';
+import Login from "./components/auth/login/loginAuth";
+import Register from "./components/auth/register/registerAuth";
+
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+
+import { AuthProvider } from "./Contexts/authContext/authContext";
+import { useRoutes } from "react-router-dom";
 
 function App() {
-  
+  const routesArray = [
+    {
+      path: "*",
+      element: <Login />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
+    },
+    {
+      path: "/home",
+      element: <Home />,
+    },
+  ];
+  let routesElement = useRoutes(routesArray);
   return (
-    <div className="App">
+    <AuthProvider>
       <Navbar />
-      <header className="App-header">
-      </header>
-      <div>
-        <BrowserRouter>
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/game" element={<Game />} />
-            <Route path="*" element={<NoPage />} />
-            <Route path="/signup" element={<Signup/>}/>
-            <Route path="/login" element={<Login/>}/>
-          </Routes>
-        </BrowserRouter>
-      </div>
-    </div>
+      <div className="w-full h-screen flex flex-col">{routesElement}</div>
+    </AuthProvider>
   );
 }
- 
+
 export default App;

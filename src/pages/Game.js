@@ -1,14 +1,14 @@
 import Navbar from '../components/Navbar';
-import Tetris from '..//components/Tetris';
-
-
+import GameController from '..//components/GameController';
+import Petris from '../components/Game';
 
 function Game() {
 
   return (
     <>
       <h1>Game Page</h1> 
-      <Tetris />
+      
+      <Petris rows={20} cols={10} />
     </>
   );
 
