@@ -7,6 +7,26 @@ import iconImage from 'public\tetrisheart.png';
 const Leaderboard = () => {
     const [leaderboardData, setLeaderboardData] = useState([]);
 
+    // Dummy Placeholder Data
+    const dummyData = [
+        { username: "Cynthia99", score: 800 },
+        { username: "Michael21", score: 900 },
+        { username: "JackiePlays", score: 1000 },
+        { username: "xoCaraxo", score: 1325 },
+        { username: "Jeremy123", score: 1010 },
+        { username: "MrBinx", score: 100 },
+        { username: "PetrisFan", score: 1500 },
+        { username: "Seraphina", score: 600 },
+    ]
+
+    // Dummy useEffect
+    useEffect(() => {
+        const sortedDummyData = [...dummyData].sort((a, b) => b.score - a.score); 
+        const top5Players = sortedDummyData.slice(0, 5);
+        setLeaderboardData(top5Players);
+    }, []);
+
+    /*
     useEffect(() => {
         const database = getDatabase();
         const leaderboardRef = ref(database, 'leaderboard');
@@ -24,11 +44,12 @@ const Leaderboard = () => {
             }
         });
     }, []);
+    */
 
     return (
         <div className="container my-5">
             <h1 className="header">Final Leaderboard</h1>
-            <h2 className="game-name">GAME NAME</h2>
+            <h2 className="game-name">Petris</h2>
             
             <div className="leaderboard-panel">
                 {leaderboardData.map((player, index) => (
