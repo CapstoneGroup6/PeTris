@@ -1,4 +1,5 @@
 import "../styles/BoardCell.css";
+import React, {useState} from 'react';
 
 const BoardCell = ({ cell }) => {
     if (cell.className) {

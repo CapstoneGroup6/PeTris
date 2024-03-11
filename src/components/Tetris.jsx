@@ -6,6 +6,7 @@ import GameController from "./GameController.jsx";
 import { useBoard } from "../hooks/useBoard.js";
 import { useGameStats } from "../hooks/useGameStats.js";
 import { usePlayer } from "../hooks/usePlayer.js";
+import React, {useState} from 'react';
 
 const Tetris = ({ rows, cols, setGameOver }) => {
     const [gameStats, addLinesCleared] = useGameStats();

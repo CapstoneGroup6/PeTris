@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
-import "./Leaderboard.css";
+import '../styles/Leaderboard.css';
 
-import iconImage from 'public\tetrisheart.png';
+import tetrisHeart from '../styles/tetrisheart.png';
+import trophy from '../styles/trophy.png';
 
 const Leaderboard = () => {
     const [leaderboardData, setLeaderboardData] = useState([]);
@@ -48,22 +49,17 @@ const Leaderboard = () => {
 
     return (
         <div className="container my-5">
-            <h1 className="header">Final Leaderboard</h1>
+            <div className="header">
+                <img src={trophy} alt="Trophy Icon" className="trophy" />
+                <h1 className="header-text">Leaderboard</h1>
+                <img src={trophy} alt="Trophy Icon" className="trophy" /></div>
             <h2 className="game-name">Petris</h2>
-            
-            <div className="leaderboard-panel">
-                {leaderboardData.map((player, index) => (
-                    <div key={index} className="circle">{index + 1}</div>
-                ))}
-                <div className="icon" style={{ backgroundImage: `url(${iconImage})` }}></div>
-                {
-                }
-            </div>
-            
             <ul className="list-group">
                 {leaderboardData.map((player, index) => (
                     <li key={index} className="list-group-item">
                         <div className="entry">
+                        <div key={index} className="circle">{index + 1}</div>
+                        <div className="icon" style={{ backgroundImage: `url(${tetrisHeart})` }}></div>
                             <span className="player-name">{player.username}</span>
                             <span className="player-points">{player.score}</span>
                         </div>

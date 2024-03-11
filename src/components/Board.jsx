@@ -1,5 +1,6 @@
 import BoardCell from '../GameHelpers/BoardCell';
 import "../styles/Board.css";
+import React, {useState} from 'react';
 
 const Board = ({ board }) => {
 

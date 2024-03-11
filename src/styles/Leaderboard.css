@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.container {
+  width: 80%; 
+  max-width: 600px; 
+  margin: 0 auto; 
+  padding: 10px; 
+}
+
+.header {
+    background-color: #341B5F; 
+    padding: 20px; 
+    color: #ffffff; 
+    font-family: 'Press Start 2P', sans-serif; 
+    display: flex;
+    align-items: center;
+    background-position: center;
+    justify-content: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1.5);
+  }
+
+  .trophy {
+    width: 45px; 
+    height: auto;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .game-name {
+    background-color: #EC13A4; 
+    color: #ffffff; 
+    text-align: center;
+    font-family: 'Press Start 2P', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1.5);
+  }
+  
+  .icon {
+    width: 30px; 
+    height: 20px; 
+    margin-right: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .entry {
+    background-image: linear-gradient(to right, #6839EB, #EC13A4);
+    border-radius: 20px; 
+    padding: 10px 20px; 
+    margin-top: 10px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    color: #ffffff;
+    font-family: 'Press Start 2P', sans-serif; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .player-name {
+    flex: 1;
+  }
+
+  .player-points {
+    margin-left: 20px; 
+  }
+  

@@ -2,6 +2,8 @@ import "../styles/GameController.css";
 import { Action, actionForKey } from "../GameHelpers/Input.js";
 import { playerController } from "../GameHelpers/PlayerController.js";
 import { useInterval } from "../hooks/useInterval.js";
+import React, {useState} from 'react';
+
 const GameController = ({
     board,
     gameStats,
