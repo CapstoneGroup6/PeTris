@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 
 import { AuthProvider } from "./Contexts/authContext/authContext";
 import { useRoutes } from "react-router-dom";
+import Three from './three';
 
 function App() {
   const routesArray = [
@@ -24,6 +25,10 @@ function App() {
     {
       path: "/home",
       element: <Home />,
+    },
+    {
+      path: "/landing",
+      element: <Three />,
     },
   ];
   let routesElement = useRoutes(routesArray);
