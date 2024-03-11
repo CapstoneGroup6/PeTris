@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import { AuthProvider } from "./Contexts/authContext/authContext";
 import { useRoutes } from "react-router-dom";
 
+import React, {useState} from 'react';
+
 function App() {
   const routesArray = [
     {

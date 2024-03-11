@@ -3,7 +3,8 @@ import React from 'react'
 import { useAuth } from '../Contexts/authContext/authContext'
 import Game from '../components/Game';
 import { database } from '../firebase/firebase'
-import {ref, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+import {ref, set } from 'firebase/database';
+import Leaderboard from '../components/Leaderboard';
 
 export default function Home() {
   
@@ -27,9 +28,9 @@ set(ref(database, 'testData/' + testID), data).then( () => {
 } );
 
   return (
-      <div className='text-2xl font-bold pt-14'>Hello {currentUser.displayName ? currentUser.displayName : currentUser.email}, you are logged in.</div>,
+      <div> <div className='text-2xl font-bold pt-14'>Hello {currentUser.displayName ? currentUser.displayName : currentUser.email}, you are logged in.</div>,
       <Game rows={20} cols={10} />
-
+      <Leaderboard /> </div>
 
   )
   }

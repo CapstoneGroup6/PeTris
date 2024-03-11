@@ -1,10 +1,11 @@
 import '../styles/Menu.css'
+import React, {useState} from 'react';
 
 const Menu = ({ onClick }) => {
     return (
         <div className="Menu">
             <button className="Button" onClick={onClick}>
-                play tetris
+                Play Petris
             </button>
         </div>
     )
