@@ -31,7 +31,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/CapstoneGroup6/PeTris">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/CapstoneGroup6/PeTris/assets/26040264/b9159ede-372f-4ed6-87f7-282db6c98ecc" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">PeTris</h3>
@@ -83,7 +83,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![PeTris_Logo][product-screenshot]](https://github.com/CapstoneGroup6/PeTris/assets/26040264/b9159ede-372f-4ed6-87f7-282db6c98ecc)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
