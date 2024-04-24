@@ -37,7 +37,7 @@
 <h3 align="center">PeTris</h3>
 
   <p align="center">
-    Project T is a web/browser-based game inspired by Tetris, where players race against the time to clear the most amount of lines and achieve a high score that gets posted on the leaderboard. 
+    PeTris is a web/browser-based game inspired by Tetris, where players race against the time to clear the most amount of lines and achieve a high score that gets posted on the leaderboard. 
     <br />
     <a href="https://github.com/CapstoneGroup6/PeTris"><strong>Explore the docs »</strong></a>
     <br />
